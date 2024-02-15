@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <style>
+
+form {
+    text-align: center;
+    margin-top: 10px; /* Add margin for better spacing */
+}
+
+button[type="submit"] {
+    background-color: #d9534f; /* Red color for the reset button */
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px rgba(2, 2, 2, 0.3); /* Box shadow for the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333; /* Dark text color */
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #fff;
+            text-align: center;
+        }
+        #userStatus {
+            margin-top: 5px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 20px 20px 20px rgba(2, 2, 2, 0.3);
+        }
+
+        section {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #petIcon {
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 5px;
+            font-size: 22px;
+        }
+
+        /* Add your dashboard.css styles */
+        .dashboard-image {
+            float: left;
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        #adoption {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #petName {
+            color: #333; /* Dark text color */
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-top: 60px;
+        }
+
+        #adoptBtn {
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 14px;
+            margin: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #petInfo {
+            text-align: center;
+            background-color: #f0f0f0; /* Lighter pet info background */
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 10px 10px 10px rgba(2, 2, 2, 0.3);
+        }
+
+        #petStats {
+            padding: 20px 0;
+            font-size: 20px;
+            margin: 10px;
+            background-color: #ffc107; /* Yellow pet stats background */
+            color: #333; /* Dark text color */
+        }
+
+        #buttons {
+            text-align: center;
+            padding: 10px;
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #feedBtn,
+        #playBtn,
+        #sleepBtn {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 20px;
+            margin: 10px;
+            background-color: #007bff; /* Blue action button */
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        #feedBtn:hover,
+        #playBtn:hover,
+        #sleepBtn:hover {
+            background-color: #FFCC33;
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <img src='/static/images/PetLogo.png' alt="Your Logo" width="300" height="300">
+    <!-- Adjust the width and height here as well -->
+    <h1>Welcome to Virtual Pet Adoption Center</h1>
+
+    <div id="userStatus">
+        {% if user.logged_in %}
+        <p>Welcome, {{ user.username }}! You are logged in.</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+        <p>You are not logged in.</p>
+        {% endif %}
+    </div>
+</header>
+
+
+<!-- Adoption Section -->
+<section id="adoption">
+    <input type="text" id="petName" name="petName" placeholder="Enter pet name" required>
+    <p>Choose a pet type:</p>
+    <input type="radio" id="dog" name="petType" value="dog" required>
+    <label for="dog">Dog</label>
+    <input type="radio" id="cat" name="petType" value="cat" required>
+    <label for="cat">Cat</label>
+    <button id="adoptBtn">Adopt</button>
+    <img id="petIcon" src="" alt="Pet Icon" style="display: none;">
+    <p id="adoptionMessage"></p>
+    <button id="confirmAdoptionBtn" style="display: none;">Confirm Adoption</button>
+</section>
+
+
+<!-- Pet Information Section -->
+<section id="petInfo" style="display: none;">
+    <h2>My Pet Activities:</h2>
+    <p id="welcomeMessage"></p>
+    <p id="petStats"></p>
+    <div id="interactionContainer"></div>
+    <h3>Interaction:</h3>
+    <ul id="interactionMessages"></ul>
+
+</section>
+
+<script>
+
+  document.getElementById('confirmAdoptionBtn').addEventListener('click', function() {
+    document.getElementById('petInfo').style.display = 'block';
+  });
+
+</script>
+
+
+<!-- Action Buttons Section -->
+
+<div id="buttons" style="display: none;">
+    <button id="feedBtn">🍗Let's Eat🍗</button>
+    <button id="playBtn">😁PlayTime😁</button>
+    <button id="sleepBtn">💤Let's Sleep💤</button>
+</div>
+
+<!-- Add a button to reset the pet -->
+<form id="resetPetForm" action="{{ url_for('reset_pet') }}" method="get">
+    <button id="resetPet" type="submit">Reset and Adopt Another Pet</button>
+</form>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

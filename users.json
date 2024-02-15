@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "username": "user1",
+      "password": "hashed_password",
+      "pet_name": ""
+    },
+    {
+      "username": "user2",
+      "password": "hashed_password",
+      "pet_name": ""
+    },
+    {
+      "username": "ana",
+      "password": "$2b$12$s4M8gUzyDlyHWZ5Axa87kOyMzWRtLqZ/Ocn9NLXoIPQSzQNsMpMvO",
+      "pet_name": null
+    },
+    {
+      "username": "lara",
+      "password": "$2b$12$U5E62lZWgs0UrQ1VAfTyOe2zyPfPMdjitEG4cPxx5duP3kz96QqFa",
+      "adopted_pets": []
+    },
+    {
+      "username": "sofia",
+      "password": "$2b$12$1ivFcb4DXfNfU5aGiVE1iORsLPsrcPIhpEng2/jPLRdBaItRRPkp6",
+      "adopted_pets": []
+    },
+    {
+      "username": "Maria",
+      "password": "$2b$12$/B7UqElSTg8pV3z59qccT.JiwEYwhVRQ9Va44pu8gO8VAI9yMRTyS",
+      "adopted_pets": []
+    },
+    {
+      "username": "sprain",
+      "password": "$2b$12$t3vnznssPc9X2fNbqYlXzuQnD4zNhc1JtGkAHtMzpJCqyGXEQRYUK",
+      "adopted_pets": []
+    },
+    {
+      "username": "Anna",
+      "password": "$2b$12$yv7vhsPGSkcTw3WYpt2qq.UrbIzpeiow4HimxD..VXWT.3hIyuZFm",
+      "adopted_pets": []
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+/* Style for the input field and submit button */
+h1 {
+  text-align: center;
+  color: #964B00;
+  margin-top: 5px;
+}
+}
+
+/* dashboard.css */
+
+.dashboard-image {
+    float: left;       /* Float the image to the left */
+    max-width: 100px;  /* Set the maximum width for the image (adjust as needed) */
+    margin-right: 20px; /* Add some margin to the right for spacing (adjust as needed) */
+}
+
+
+/* Style for adoption */
+#adoption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Style for the petName */
+#petName {
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+/* Style for the adoptBtn */
+#adoptBtn {
+  color: orange;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px;
+}
+
+/* Style for the petInfo display area */
+#petInfo {
+  text-align: center;
+  background-color: #c7c5bf;
+  padding: 20px; /* Increase padding for better appearance */
+  border-radius: 20px;
+  margin: 20px auto; /* Center align and adjust margin */
+  box-shadow: 0 0 10px rgba(0, 0, 0.2);
+}
+
+/* Style petStats */
+#petStats {
+  padding: 20px 0; /* Adjust padding */
+  font-size: 20px;
+  margin: 10px;
+  background-color: #e0bb63;
+  color: black;
+}
+
+/* Style for the interaction buttons */
+#buttons {
+  text-align: center;
+  padding: 10px; /* Adjust padding */
+  border-radius: 20px;
+  margin: 20px auto; /* Center align and adjust margin */
+  box-shadow: 0 0 10px rgba(0, 0, 0.2);
+}
+/* Style for buttons */
+#feedBtn,
+#playBtn,
+#sleepBtn {
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 20px;
+  margin: 10px; /* Adjust margin */
+  background-color: #997950;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Style for the interaction buttons on hover */
+#feedBtn:hover,
+#playBtn:hover,
+#sleepBtn:hover {
+  background-color: #f5cb42;
+  text-decoration: underline;
+}
